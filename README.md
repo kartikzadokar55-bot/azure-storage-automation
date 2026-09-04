@@ -21,12 +21,12 @@ The project covers:
 
 ## Architecture
 
-```text
+```
                      Azure Subscription
                             |
                             v
-                 Resource Group
-            rg-azure-storage-automation
+                    Resource Group
+             rg-azure-storage-automation
                             |
                             v
                    Storage Account
@@ -42,23 +42,21 @@ The project covers:
               |                           |
               v                           v
          sample.txt             file-share-test.txt
-
+```
 
 ## Technologies Used
 
--Microsoft Azure
--Azure Storage
--Azure CLI
--Bash
--Linux / WSL
--Git
--GitHub
+- Microsoft Azure
+- Azure Storage
+- Azure CLI
+- Bash
+- Linux / WSL
+- Git
+- GitHub
 
-## Project Stucture
-
+## Project Structure
 
 ```text
-
 azure-storage-automation/
 |
 ├── README.md
@@ -76,89 +74,76 @@ azure-storage-automation/
     ├── download-data.sh
     ├── list-storage.sh
     └── cleanup.sh
+```
 
 ## Scripts
-
 
 ### create-storage.sh
 
 Creates the Azure Storage environment:
 
-Resource Group
-Storage Account
-Blob Container
+- Resource Group
+- Storage Account
+- Blob Container
 
 The script checks whether resources already exist before creating them.
 
 ### upload-data.sh
 
-Uploads sample-data/sample.txt to the project-data Blob container.
+Uploads `sample-data/sample.txt` to the `project-data` Blob container.
 
 ### download-data.sh
 
-Downloads sample.txt from Azure Blob Storage into the local downloaded-data directory.
+Downloads `sample.txt` from Azure Blob Storage into the local `downloaded-data` directory.
 
 ### list-storage.sh
 
-Lists the blobs available inside the project-data container.
+Lists the blobs available inside the `project-data` container.
 
 ### cleanup.sh
 
-Deletes the project Resource Group and the resources contained within it.
+Deletes the project Resource Group and all resources contained within it.
 
-Do not run this script unless the Azure resources should be deleted.
+> ⚠️ Do not run this script unless the Azure resources should be deleted.
 
-### Authentication
+## Authentication
 
 Azure CLI is used to authenticate with Azure.
 
-Blob Storage operations use Microsoft Entra authentication with:
+Blob Storage operations use Microsoft Entra authentication via `--auth-mode login`.
 
---auth-mode login
+The project also demonstrates Azure RBAC for Blob data access using the **Storage Blob Data Contributor** role.
 
-The project also demonstrates Azure RBAC for Blob data access using the:
+## Key Azure Concepts Practiced
 
-Storage Blob Data Contributor
-
-role.
-
-Key Azure Concepts Practiced
-
-### Resource Group
-
+**Resource Group**
 A logical container for related Azure resources.
 
-### Storage Account
-
+**Storage Account**
 The Azure resource that provides storage services for the project.
 
-### Blob Storage
-
+**Blob Storage**
 Used for object-based storage such as files and application data.
 
-### Azure Files
-
+**Azure Files**
 Provides managed file-share storage.
 
-### Azure RBAC
-
-Controls access to Azure resources and storage data
-
+**Azure RBAC**
+Controls access to Azure resources and storage data.
 
 ## Learning Outcomes
 
 After completing this project, I can:
 
--Create Azure Storage resources using Azure CLI
--Manage Blob containers
--Upload and download Blob data
--List Blob objects
--Create Azure File Shares
--Automate Azure operations with Bash
--Build idempotent provisioning scripts
--Apply Azure RBAC concepts
--Manage the lifecycle of Azure resources
-
+- Create Azure Storage resources using Azure CLI
+- Manage Blob containers
+- Upload and download Blob data
+- List Blob objects
+- Create Azure File Shares
+- Automate Azure operations with Bash
+- Build idempotent provisioning scripts
+- Apply Azure RBAC concepts
+- Manage the lifecycle of Azure resources
 
 ## Project Status
 
@@ -168,9 +153,9 @@ Completed core Azure Storage automation workflow.
 
 Possible future enhancements:
 
-Parameterize scripts
-Add input validation
-Add logging
-Add better error handling
-Add Azure File Share automation
-Add CI/CD integration
+- Parameterize scripts
+- Add input validation
+- Add logging
+- Add better error handling
+- Add Azure File Share automation
+- Add CI/CD integration
